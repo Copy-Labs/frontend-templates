@@ -285,6 +285,7 @@ function Navbar() {
             style={{
               position: "absolute",
               top: "100%",
+              height: "100dvh",
               left: 0,
               right: 0,
               background: "var(--color-bg-primary)",
@@ -1296,22 +1297,9 @@ function Testimonials() {
 
 function Footer() {
   return (
-    <footer
-      style={{
-        background: "var(--color-bg-secondary)",
-        padding: "var(--space-3xl) 0 var(--space-xl)",
-        borderTop: "1px solid var(--color-border)",
-      }}
-    >
+    <footer className="site-footer">
       <div className="container">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1fr",
-            gap: "var(--space-3xl)",
-            marginBottom: "var(--space-3xl)",
-          }}
-        >
+        <div className="footer-grid">
           {/* Brand Column */}
           <div>
             <a
@@ -1399,6 +1387,7 @@ function Footer() {
 
         {/* Bottom Footer */}
         <div
+          className="footer-bottom"
           style={{
             paddingTop: "var(--space-xl)",
             borderTop: "1px solid var(--color-border)",
@@ -1410,7 +1399,7 @@ function Footer() {
           }}
         >
           <div style={{ fontSize: "0.8125rem", color: "var(--color-text-muted)" }}>
-            © 2024 Flow. All rights reserved.
+            &copy; {new Date().getFullYear()} Flow. All rights reserved.
           </div>
           <div className="flex gap-lg">
             {["Privacy Policy", "Terms of Service", "Cookies"].map((link) => (
@@ -1431,19 +1420,6 @@ function Footer() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 768px) {
-          footer .container > div:first-child {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-        @media (max-width: 480px) {
-          footer .container > div:first-child {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
     </footer>
   );
 }
