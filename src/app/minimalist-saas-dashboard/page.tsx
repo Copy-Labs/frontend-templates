@@ -391,20 +391,20 @@ function Hero() {
               padding: "var(--space-xs) var(--space-md)",
               background: "var(--color-bg-card)",
               borderRadius: "var(--radius-full)",
-              border: "1px solid var(--color-border)",
+              // border: "1px solid var(--color-border)",
               fontSize: "0.875rem",
               color: "var(--color-text-secondary)",
               marginBottom: "var(--space-xl)",
             }}
           >
-            <span
+            {/*<span
               style={{
                 width: "6px",
                 height: "6px",
                 background: "var(--color-accent-teal)",
                 borderRadius: "50%",
               }}
-            />
+            />*/}
             Now in public beta
           </div>
 
@@ -656,37 +656,364 @@ function Features() {
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-3">
-          {features.map((feature, index) => (
+        {/* Bento Grid */}
+        <div
+          className="bento-grid animate-fade-in-up delay-300"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateRows: "repeat(2, 1fr)",
+            gap: "var(--space-md)",
+            maxWidth: "1000px",
+            margin: "0 auto",
+            minHeight: "560px",
+          }}
+        >
+          {/* Large Feature - Real-time Collaboration */}
+          <div
+            className="bento-large"
+            style={{
+              gridColumn: "span 2",
+              gridRow: "span 2",
+              background: "linear-gradient(135deg, var(--color-sage) 0%, #b8d4b8 100%)",
+              borderRadius: "var(--radius-xl)",
+              padding: "var(--space-xl)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
             <div
-              key={feature.id}
-              className="card animate-fade-in-up"
               style={{
-                animationDelay: `${(index + 1) * 100}ms`,
-                cursor: "default",
+                position: "absolute",
+                right: "-20px",
+                top: "-20px",
+                width: "200px",
+                height: "200px",
+                background: "rgba(255,255,255,0.15)",
+                borderRadius: "50%",
+              }}
+            />
+            <div
+              style={{
+                width: "56px",
+                height: "56px",
+                background: "rgba(255,255,255,0.3)",
+                borderRadius: "var(--radius-lg)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "var(--space-lg)",
               }}
             >
-              <div
-                style={{
-                  width: "48px",
-                  height: "48px",
-                  background: feature.color,
-                  borderRadius: "var(--radius-md)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.5rem",
-                  marginBottom: "var(--space-lg)",
-                }}
-              >
-                {feature.icon}
-              </div>
-              <h3 style={{ marginBottom: "var(--space-sm)", fontSize: "1.25rem" }}>{feature.title}</h3>
-              <p style={{ fontSize: "0.9375rem", lineHeight: 1.6 }}>{feature.description}</p>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--color-text-primary)" }}>
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
             </div>
-          ))}
+            <div>
+              <h3 style={{ fontSize: "1.5rem", marginBottom: "var(--space-sm)", color: "var(--color-text-primary)" }}>
+                Real-time Collaboration
+              </h3>
+              <p style={{ fontSize: "1rem", color: "var(--color-text-secondary)", lineHeight: 1.6 }}>
+                Work together seamlessly with your team in real-time. See changes as they happen with zero latency.
+              </p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap: "var(--space-xs)",
+                marginTop: "var(--space-lg)",
+              }}
+            >
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    background: i === 1 ? "var(--color-text-primary)" : "rgba(255,255,255,0.4)",
+                    borderRadius: "50%",
+                    border: "2px solid white",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "0.625rem",
+                    fontWeight: 600,
+                    color: i === 1 ? "white" : "var(--color-text-primary)",
+                    marginLeft: i > 1 ? "-8px" : 0,
+                    zIndex: 6 - i,
+                  }}
+                >
+                  {["SC", "MJ", "ER", "AK", "+2"][i - 1]}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Small Feature - Smart Automation */}
+          <div
+            className="bento-small"
+            style={{
+              background: "var(--color-bg-card)",
+              borderRadius: "var(--radius-xl)",
+              padding: "var(--space-lg)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              // border: "1px solid var(--color-border)",
+            }}
+          >
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                // background: "var(--color-peach)",
+                borderRadius: "var(--radius-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--color-accent-amber)" }}>
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style={{ fontSize: "1.125rem", marginBottom: "var(--space-xs)" }}>Smart Automation</h4>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-text-muted)" }}>
+                Automate workflows
+              </p>
+            </div>
+          </div>
+
+          {/* Small Feature - Advanced Analytics */}
+          <div
+            className="bento-small"
+            style={{
+              background: "var(--color-bg-card)",
+              borderRadius: "var(--radius-xl)",
+              padding: "var(--space-lg)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              // border: "1px solid var(--color-border)",
+            }}
+          >
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                // background: "var(--color-lavender)",
+                borderRadius: "var(--radius-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "#9070c0" }}>
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style={{ fontSize: "1.125rem", marginBottom: "var(--space-xs)" }}>Advanced Analytics</h4>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-text-muted)" }}>
+                Gain insights
+              </p>
+            </div>
+          </div>
+
+          {/* Medium Feature - Secure by Design */}
+          <div
+            className="bento-medium"
+            style={{
+              gridColumn: "span 2",
+              gridRow: "span 2",
+              background: "linear-gradient(135deg, var(--color-sky) 0%, #c8d8e8 100%)",
+              borderRadius: "var(--radius-xl)",
+              padding: "var(--space-xl)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                right: -10,
+                top: 50,
+                transform: "translateY(-50%)",
+                width: "144px",
+                height: "144px",
+                border: "3px solid rgba(255,255,255,0.4)",
+                borderRadius: "50%",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                right: 1,
+                top: 50,
+                transform: "translateY(-50%)",
+                width: "100px",
+                height: "100px",
+                border: "3px solid rgba(255,255,255,0.3)",
+                borderRadius: "50%",
+              }}
+            />
+            <div style={{ maxWidth: "280px", position: "relative", zIndex: 1 }}>
+              <h3 style={{ fontSize: "1.375rem", marginBottom: "var(--space-sm)", color: "var(--color-text-primary)" }}>
+                Secure by Design
+              </h3>
+              <p style={{ fontSize: "0.9375rem", color: "var(--color-text-secondary)" }}>
+                Enterprise-grade security with end-to-end encryption and compliance tools built in.
+              </p>
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                top: 24,
+                right: 24,
+                zIndex: 1,
+                width: "48px",
+                height: "48px",
+                background: "rgba(255,255,255,0.3)",
+                borderRadius: "var(--radius-lg)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--color-text-primary)" }}>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+          </div>
+
+          {/* Small Feature - Seamless Integrations */}
+          <div
+            className="bento-small"
+            style={{
+              background: "var(--color-bg-card)",
+              borderRadius: "var(--radius-xl)",
+              padding: "var(--space-lg)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              // border: "1px solid var(--color-border)",
+            }}
+          >
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                // background: "var(--color-rose)",
+                borderRadius: "var(--radius-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "#c07080" }}>
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style={{ fontSize: "1.125rem", marginBottom: "var(--space-xs)" }}>Integrations</h4>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-text-muted)" }}>
+                Connect tools
+              </p>
+            </div>
+          </div>
+
+          {/* Small Feature - Global CDN */}
+          <div
+            className="bento-small"
+            style={{
+              background: "var(--color-bg-card)",
+              borderRadius: "var(--radius-xl)",
+              padding: "var(--space-lg)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              // border: "1px solid var(--color-border)",
+            }}
+          >
+            <div
+              style={{
+                width: "40px",
+                height: "40px",
+                // background: "var(--color-blush)",
+                borderRadius: "var(--radius-md)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--color-accent-coral)" }}>
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 style={{ fontSize: "1.125rem", marginBottom: "var(--space-xs)" }}>Global CDN</h4>
+              <p style={{ fontSize: "0.8125rem", color: "var(--color-text-muted)" }}>
+                Lightning fast
+              </p>
+            </div>
+          </div>
         </div>
+
+        <style jsx>{`
+          @media (max-width: 900px) {
+            .bento-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              grid-template-rows: auto !important;
+              minHeight: auto !important;
+            }
+            .bento-large {
+              grid-column: span 2 !important;
+              grid-row: span 1 !important;
+              min-height: 320px;
+            }
+            .bento-medium {
+              grid-column: span 2 !important;
+            }
+          }
+          @media (max-width: 640px) {
+            .bento-grid {
+              grid-template-columns: 1fr !important;
+            }
+            .bento-large,
+            .bento-medium {
+              grid-column: span 1 !important;
+            }
+            .bento-large {
+              min-height: 360px;
+            }
+            .bento-medium {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: var(--space-lg);
+            }
+            .bento-medium > div:first-of-type,
+            .bento-medium > div:last-of-type {
+              position: static !important;
+              transform: none !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );
