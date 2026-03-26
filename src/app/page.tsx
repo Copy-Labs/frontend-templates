@@ -102,6 +102,12 @@ export default function Home() {
           >
             View E-commerce Product Page
           </a>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-cyan-500 px-2 transition-colors hover:bg-cyan-500 hover:text-black dark:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black"
+            href="/startup-pitch"
+          >
+            View Startup Pitch Page
+          </a>
         </div>
       </main>
     </div>
