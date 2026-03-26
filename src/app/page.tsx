@@ -110,7 +110,7 @@ export default function Home() {
           </a>
           <a
             className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-cyan-500 px-2 transition-colors hover:bg-cyan-500 hover:text-black dark:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black"
-            href="/ai-chat-interface"
+            href="/chatgpt-retro"
           >
             View ChatGPT Retro Page
           </a>
@@ -119,6 +119,12 @@ export default function Home() {
             href="/ai-chat-interface"
           >
             View AI Chat Interface Page
+          </a>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-cyan-500 px-2 transition-colors hover:bg-cyan-500 hover:text-black dark:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black"
+            href="/event-landing-page"
+          >
+            View Event Landing Page
           </a>
         </div>
       </main>
