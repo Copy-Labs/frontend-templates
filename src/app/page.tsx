@@ -84,6 +84,12 @@ export default function Home() {
           >
             View Interactive Storytelling
           </a>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-cyan-500 px-2 transition-colors hover:bg-cyan-500 hover:text-black dark:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black"
+            href="/agency-website"
+          >
+            View Agency Website
+          </a>
         </div>
       </main>
     </div>
