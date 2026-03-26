@@ -1,0 +1,520 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #0a0a0f;
+}
+
+/* Progress bar */
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #ff6b6b, #e94560, #7b2cbf, #ff9f1c);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+  transition: width 0.3s ease-out;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navigation dots */
+.navDots {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1000;
+}
+
+.navDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navDot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navDot:hover::before {
+  opacity: 1;
+}
+
+.activeDot {
+  background: #00d4ff;
+  border-color: #00d4ff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.activeDot::before {
+  opacity: 1;
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+/* Audio control */
+.audioControl {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.audioControl:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.audioIcon {
+  font-size: 14px;
+  color: #fff;
+}
+
+.audioLabel {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Scene counter */
+.sceneCounter {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  z-index: 1000;
+}
+
+.currentScene {
+  font-size: 48px;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.totalScenes {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Background overlay */
+.backgroundOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: opacity 1s ease;
+}
+
+/* Particles */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: var(--color);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+  box-shadow: 0 0 10px var(--color), 0 0 20px var(--color);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-10px, -60px) scale(0.8);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(30px, -30px) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* Scenes container */
+.scenesContainer {
+  position: relative;
+  z-index: 10;
+}
+
+.scene {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 60px;
+}
+
+.sceneContent {
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+}
+
+.chapterLabel {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.sceneTitle {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(60px, 12vw, 150px);
+  line-height: 1;
+  margin: 0 0 40px;
+  letter-spacing: 8px;
+  transition: all 0.5s ease;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: letterReveal 0.6s ease forwards;
+}
+
+@keyframes letterReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sceneDescription {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+  transition: opacity 0.8s ease;
+}
+
+.sceneDescription p {
+  margin: 0;
+}
+
+.sceneIcon {
+  font-size: 80px;
+  margin-top: 60px;
+  opacity: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Corner decorations */
+.cornerTopLeft,
+.cornerTopRight,
+.cornerBottomLeft,
+.cornerBottomRight {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 1px solid;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.cornerTopLeft {
+  top: 40px;
+  left: 40px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.cornerTopRight {
+  top: 40px;
+  right: 40px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.cornerBottomLeft {
+  bottom: 40px;
+  left: 40px;
+  border-right: none;
+  border-top: none;
+}
+
+.cornerBottomRight {
+  bottom: 40px;
+  right: 40px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Final section */
+.finalSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+  position: relative;
+}
+
+.finalContent {
+  text-align: center;
+  max-width: 600px;
+  padding: 60px;
+}
+
+.finalTitle {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(40px, 8vw, 80px);
+  color: #fff;
+  margin: 0 0 20px;
+  letter-spacing: 4px;
+}
+
+.finalSubtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 40px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 40px;
+  background: transparent;
+  border: 2px solid #ff9f1c;
+  color: #ff9f1c;
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #ff9f1c;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.ctaButton:hover {
+  color: #0a0a0f;
+}
+
+.ctaButton:hover::before {
+  left: 0;
+}
+
+.ctaArrow {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navDots {
+    right: 15px;
+  }
+
+  .scene {
+    padding: 30px 20px;
+  }
+
+  .sceneTitle {
+    letter-spacing: 4px;
+  }
+
+  .sceneDescription {
+    font-size: 16px;
+  }
+
+  .sceneIcon {
+    font-size: 50px;
+  }
+
+  .cornerTopLeft,
+  .cornerTopRight,
+  .cornerBottomLeft,
+  .cornerBottomRight {
+    width: 30px;
+    height: 30px;
+  }
+
+  .cornerTopLeft {
+    top: 20px;
+    left: 20px;
+  }
+
+  .cornerTopRight {
+    top: 20px;
+    right: 20px;
+  }
+
+  .cornerBottomLeft {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .cornerBottomRight {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .audioControl {
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 15px;
+  }
+
+  .sceneCounter {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .currentScene {
+    font-size: 32px;
+  }
+}
+
+/* Scanlines effect */
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.3;
+}
+
+/* Vignette */
+.container::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
