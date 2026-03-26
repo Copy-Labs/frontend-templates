@@ -601,7 +601,7 @@ function Contact() {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              hello@nexus.dev
+              hello@copylabs.dev
             </a>
 
             <a
@@ -643,7 +643,7 @@ function Contact() {
 
           <div className="mt-12 pt-8 border-t border-white/10">
             <p className="text-slate-500 text-sm">
-              © 2025 NEXUS. Crafted with passion and code.
+              &copy; {new Date().getFullYear()} CopyLabs. Crafted with passion and code.
             </p>
           </div>
         </div>
