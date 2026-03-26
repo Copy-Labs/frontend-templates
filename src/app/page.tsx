@@ -59,12 +59,20 @@ export default function Home() {
             Documentation
           </a>
         </div>
-        <a
-          className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-cyan-500 px-5 transition-colors hover:bg-cyan-500 hover:text-black dark:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black"
-          href="/futuristic-web3-portfolio"
-        >
-          View Futuristic Portfolio
-        </a>
+        <div className={'flex flex-row items-center flex-wrap gap-4'}>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-cyan-500 px-2 transition-colors hover:bg-cyan-500 hover:text-black dark:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black"
+            href="/futuristic-web3-portfolio"
+          >
+            View Futuristic Portfolio
+          </a>
+          <a
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-cyan-500 px-2 transition-colors hover:bg-cyan-500 hover:text-black dark:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black"
+            href="/minimalist-saas-dashboard"
+          >
+            View Minimalist Saas Dashboard
+          </a>
+        </div>
       </main>
     </div>
   );
