@@ -24,3 +24,77 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Smooth organic blob animations */
+@keyframes blob1 {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: scale(1); }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; transform: scale(1.02); }
+  75% { border-radius: 60% 40% 50% 50% / 70% 30% 50% 50%; }
+}
+
+@keyframes blob2 {
+  0%, 100% { border-radius: 40% 60% 60% 40% / 40% 60% 40% 60%; transform: scale(1); }
+  25% { border-radius: 60% 40% 50% 50% / 50% 40% 60% 50%; }
+  50% { border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%; transform: scale(1.02); }
+  75% { border-radius: 30% 70% 60% 40% / 40% 50% 40% 60%; }
+}
+
+@keyframes blob3 {
+  0%, 100% { border-radius: 70% 30% 40% 60% / 40% 60% 30% 70%; transform: scale(1); }
+  25% { border-radius: 50% 50% 60% 40% / 60% 30% 50% 50%; }
+  50% { border-radius: 40% 60% 70% 30% / 50% 40% 60% 50%; transform: scale(1.02); }
+  75% { border-radius: 60% 40% 30% 70% / 30% 70% 40% 60%; }
+}
+
+@keyframes blob4 {
+  0%, 100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; transform: scale(1); }
+  25% { border-radius: 60% 40% 40% 60% / 40% 60% 60% 40%; }
+  50% { border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%; transform: scale(1.03); }
+  75% { border-radius: 70% 30% 30% 70% / 30% 70% 70% 30%; }
+}
+
+@keyframes blob5 {
+  0%, 100% { border-radius: 35% 65% 55% 45% / 55% 45% 65% 35%; transform: scale(1); }
+  25% { border-radius: 55% 45% 35% 65% / 45% 65% 55% 45%; }
+  50% { border-radius: 45% 55% 65% 35% / 65% 35% 45% 55%; transform: scale(1.02); }
+  75% { border-radius: 65% 35% 45% 55% / 35% 55% 65% 45%; }
+}
+
+@keyframes blobPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.blob-animate-1 {
+  animation: blob1 8s ease-in-out infinite;
+}
+
+.blob-animate-2 {
+  animation: blob2 7s ease-in-out infinite;
+}
+
+.blob-animate-3 {
+  animation: blob3 9s ease-in-out infinite;
+}
+
+.blob-animate-4 {
+  animation: blob4 6s ease-in-out infinite;
+}
+
+.blob-animate-5 {
+  animation: blob5 8s ease-in-out infinite;
+}
