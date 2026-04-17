@@ -198,7 +198,7 @@ function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="flex gap-xl" style={{ display: "none", alignItems: "center" }} className="desktop-nav">
+          <div className="desktop-nav flex gap-xl" style={{ display: "none", alignItems: "center" }}>
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -217,7 +217,7 @@ function Navbar() {
             ))}
           </div>
 
-          <div className="flex gap-md" style={{ display: "none", alignItems: "center" }} className="desktop-cta">
+          <div className="desktop-cta flex gap-md" style={{ display: "none", alignItems: "center" }}>
             <a
               href="#"
               style={{
