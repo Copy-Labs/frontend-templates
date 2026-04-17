@@ -1,7 +1,7 @@
 "use client";
 
 import { Russo_One, Archivo_Narrow } from 'next/font/google';
-import { motion } from 'framer-motion';
+import {AnimationGeneratorType, motion } from 'framer-motion';
 
 const russoOne = Russo_One({ subsets: ['latin'], weight: ['400'] });
 const archivoNarrow = Archivo_Narrow({ subsets: ['latin'], weight: ['400', '600'] });
@@ -71,10 +71,9 @@ const itemVariants = {
     scale: 1,
     opacity: 1,
     transition: {
-      type: "spring",
+      type: "spring" as AnimationGeneratorType | undefined,
       damping: 15,
-      stiffness: 100,
-      duration: 0.6
+      stiffness: 100
     }
   }
 };
